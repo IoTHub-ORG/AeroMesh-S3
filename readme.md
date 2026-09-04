@@ -32,3 +32,16 @@ Running flight stabilization loops alaongside camera and Wi-Fi streaming on a si
           |
           └──── 25A 4-in-1 ESC + 4X 2205 Brushless Motors
 ```
+
+
+* **The Real-Time Brain (STM32F411):** Runs iNav flight firmware, dedicating all compute cycles to sensor filtering, attitude stabilization, and motor drive via DShat protocols.
+* **The Mission Brain (ESP32-S3):** Broadcasts a local Wi-Fi Access Point, routes MAVLink telemetry packets to QGroundControl, triggers the downward camera, and logs distance data from the laser sensor.
+-------
+
+## 3. Ground Control and Smartphone Connection
+
+1. **Standalone Wi-Fi Hotspot:** The ESP32-S3 chip broadcasts a local Wi-Fi network after boot. There is no need for any router, mobile internet, or cellular towers.
+
+2. **QGroundControl Integration:** You have to connect your mobile device or laptop to the drone's Wi-Fi and open the open-source **QGroundControl** app. It creates a connection over UDP port 14550.
+
+3. **Autonomous Grid Survey**
