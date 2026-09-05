@@ -13,7 +13,7 @@ An open-source, autonomous 3D aerial mapping drone controlled directly from a sm
 * **The Solution:** AeroMesh S3 is a sub-$170 mapping platform that executes automated lawnmower survey grids without a physical RC transmitter. It uses an onboard ESP32-S3 microcontroller to create a local Wi-Fi telemetry bridge, allowing any smartphone running **QGroundControl** to dispatch missons, monitor live metrics, and trigger fail-safes.
 
 ## 2. Heterogeneous Dual-Brain Architecture
-
+![AeroMesh S3 System Architecture](docs/system_architecture.png)
 Running flight stabilization loops alongside camera and Wi-Fi streaming on a single microcontroller introduces RTOS thread latency and task contention. AeroMesh S3 separates flight stabilization from mission compute across two dedicated microcontrollers:
 
 ```text 
