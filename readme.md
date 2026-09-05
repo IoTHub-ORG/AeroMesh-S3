@@ -119,15 +119,26 @@ All components are verified in-stock from authorized domestic Indian suppliers (
 
 ## 7.Repository Structure
 ```text
+|
+├──data/
+|  └──sample_survey_log.csv   # Validated spatial survey log (frames & LiDAR AGL)
+|
 ├──docs/
-|    ├──system_architecture.png    # Block diagram of MAVLink bridge
+|    ├──system_architecture.png    # Dual-brain architecture block diagram
 |    └──wiring_schematic.png       # Complete pin-to-pin wiring diagram
+|
 ├──firmware/
 |     ├──esp32_mavlink_bridge/  #SoftAP & UDP-to-UART bridge script
-|     └──survey_logger/         #Camera capture & ToF laser logger loop
+|     |  └──esp32_mavlink_bridge.ino
+|     ├──survey_logger/         #Camera capture & ToF laser logger loop
+|     |  └──surevey_logger.ino
+|     └──inav_cli_diff.txt
+|
 ├──hardware/
-|   ├──BOM.md          # Detailed parts breakdown & supplier links
-|   └── carrier_shield/             # Gerber production files for interconnect PCB    
+|   ├──3d_mounts/
+|   |  └── camera_lidar_nadir_mount.stl
+|   ├──carrier_shield/             # Gerber production files for interconnect PCB
+|   └──BOM.md          # Detailed parts breakdown & supplier links    
 └── README.md
 ```   
 
@@ -142,3 +153,4 @@ All components are verified in-stock from authorized domestic Indian suppliers (
 4. **Mechanical Assembly:** Assemble the 2205 motors and 4-in-1 ESC to the Mark4 frame. Connect optical and laser sensors in the vibration-resistant mount located at the bottom of the quadcopter.
 
 5. **Calibration and Flight in the Field:** Calibrate the compass in the absence of magnetic field influence, get 3D GPS satellite position lock, and send out a survey grid in QGroundControl application on your phone.
+
