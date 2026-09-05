@@ -1,5 +1,7 @@
 ## AeroMesh S3
 
+<img width="2560" height="1396" alt="24bd86d9ffc247108bd2672ff4d77e05" src="https://github.com/user-attachments/assets/6ee56f42-c8ec-4efa-b356-3047a93d22b6" />
+
 An open-source, autonomous 3D aerial mapping drone controlled directly from a smartphone. AeroMesh S3 eliminates costly proprietary radio transmitters by implementing an onboard ESP32-S3 Wi-Fi MAVLink telemetry bridge, pairing autonomous waypoint navigation with a laser-synchronized downward photogrammetry payload for under $170(₹14,100).
 
 ## 1. Project Overview
