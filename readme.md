@@ -136,7 +136,8 @@ All components are verified in-stock from authorized domestic Indian suppliers (
 |
 ├──hardware/
 |   ├──3d_mounts/
-|   |  └── camera_lidar_nadir_mount.stl
+|   |  ├── camera_lidar_nadir_mount.stl
+|   |  └──landing_skid_leg.stl     ## 35mm ground-clearance arm skid
 |   ├──carrier_shield/             # Gerber production files for interconnect PCB
 |   └──BOM.md          # Detailed parts breakdown & supplier links    
 └── README.md
