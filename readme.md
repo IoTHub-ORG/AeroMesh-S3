@@ -44,4 +44,19 @@ Running flight stabilization loops alaongside camera and Wi-Fi streaming on a si
 
 2. **QGroundControl Integration:** You have to connect your mobile device or laptop to the drone's Wi-Fi and open the open-source **QGroundControl** app. It creates a connection over UDP port 14550.
 
-3. **Autonomous Grid Survey**
+3. **Autonomous Grid Survey:** In QGroundControl, select the Survey Tool and draw a polygon over the survey area. The app calculates flight lines with a 75% photo overlap sideways and forwards. To arm the drone, click or tap on **"Upload & Start Mission"**, the drone arms itself and performs the survey autonomously returning to the launch point.
+
+4. **Emergency Controls & Fail-Safes:** The bi-directional telemetry is maintained by the ground station. A single tap to the screen triggers **Return ti Launch (RTL)**, instructing the flight controller to fly back to the base using GPS and land safely. Virtual touch joystick and proper emergency motor-kill controls are also present.
+
+## 4. Data Pipeline & 3D Reconstruction
+
+During autonomous flight, the ESP32-S3 triggers the downward camera every 4 meters of horizontal movement and reads the VL53L0X micro-LiDAR to record the exact distance to the ground. Each entry is saved to the onboard MicroSD card:
+
+## What Happens with the Captured Data?
+After landing of the drone, the MicroSD cards is plugged to a pc using either WebODM or Gaussian Splatting tool:
+
+* **3D Models (`.obj`/ `.ply`):** The software generates a high-resolution 3D polygon mesh that can be used to build a game level and or/ an architectural model in Blender, Unity, or Unreal Engine.
+
+* **Digital Elevation Model (DEM):** Colorized topographic elevation maps shows erosion, slopes, and zones that contain pooling water.
+
+* **Volumetric Analysis:** This feature can calculate the volume of gravel, compost, soil etc. It can also find the volume of soil that was excavated. It does not require field surveying and can be done on a compoter.
