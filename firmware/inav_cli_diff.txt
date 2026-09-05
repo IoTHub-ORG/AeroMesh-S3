@@ -1,0 +1,62 @@
+# ====================================================================
+# iNav 7.x CLI Diff Configuration — AeroMesh S3
+# Target: JHEMCU GHF411AIO Pro (STM32F411)
+# Architecture: Dual-Brain UAV with ESP32-S3 MAVLink Telemetry Bridge
+# ====================================================================
+
+# Mixer Configuration (5-inch Quad X)
+mixer QUADX
+
+# Feature Flags
+feature -SOFTSERIAL
+feature MOTOR_STOP
+feature GPS
+feature TELEMETRY
+feature PWM_OUTPUT_ENABLE
+feature AIRMODE
+
+# Serial Port Mapping
+# UART1 (Serial 0): MAVLink Telemetry Bridge to ESP32-S3 @ 115200 Baud
+# 2 = FUNCTION_TELEMETRY_MAVLINK
+serial 0 2 115200 115200 115200 115200
+
+# UART2 (Serial 1): UBLOX NEO-M8N GPS Module @ 115200 Baud
+# 2048 = FUNCTION_GPS
+serial 1 2048 115200 115200 115200 115200
+
+# Sensor Hardware and Alignment
+set gyro_hardware = ICM42688
+set align_gyro = DEFAULT
+set acc_hardware = ICM42688
+set align_acc = DEFAULT
+set mag_hardware = AUTO
+set align_mag = CW270FLIP
+set baro_hardware = BMP280
+
+# Motor and ESC Protocol
+set motor_pwm_protocol = DSHOT300
+set looptime = 1000
+set gyro_sync = ON
+
+# GNSS & Positioning Configuration
+set gps_provider = UBLOX
+set gps_sbas_mode = AUTO
+set gps_auto_config = ON
+set gps_auto_baud = ON
+set gps_ubx_nav_hz = 5
+set gps_min_sats = 6
+
+# Autonomous Navigation & Fail-Safe Parameters
+set nav_user_control_mode = ATTI
+set nav_auto_speed = 400
+set nav_auto_climb_rate = 300
+set nav_manual_speed = 500
+set nav_mc_bank_angle = 30
+
+# Emergency Return-to-Launch (RTL) Logic
+set failsafe_procedure = RTH
+set nav_rth_climb_first = ON
+set nav_rth_altitude = 2500
+set nav_rth_abort_threshold = 50000
+
+save

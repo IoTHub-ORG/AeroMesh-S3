@@ -94,6 +94,8 @@ All components are verified in-stock from authorized domestic Indian suppliers (
 
 ## 6. Electrical Pinout and Wiring
 
+![AeroMesh S3 Electrical Wiring Schematic](docs/wiring_schematic.png)
+
 ### Flight Controller(STM32F411) to ESP32-S3-CAM:
 * `FC 5V(2A BEC Pad)` $\rightarrow$ `ESP32 5V`
 * `FC GND` $\rightarrow$ `ESP32 GND`
