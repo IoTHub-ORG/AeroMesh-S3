@@ -60,3 +60,49 @@ After landing of the drone, the MicroSD cards is plugged to a pc using either We
 * **Digital Elevation Model (DEM):** Colorized topographic elevation maps shows erosion, slopes, and zones that contain pooling water.
 
 * **Volumetric Analysis:** This feature can calculate the volume of gravel, compost, soil etc. It can also find the volume of soil that was excavated. It does not require field surveying and can be done on a compoter.
+
+---
+
+## 5. Hardware Specifications & Bill of Materials
+
+All components are verified in-stock from authorized domestic Indian suppliers (Robu.in / JLCPCB) with 18% GST included:
+
+| Component Category | Exact Hardware Specification | Supplier | Cost (INR) | Cost (USD) |
+| :--- | :--- | :--- | :---: | :---: |
+| **Airframe** | Mark4 5-inch 3K Carbon Fiber Quadcopter Frame | Robu.in | ₹1,199 | $14.32 |
+| **Motors** | ReadyToSky RS2205 2300KV Brushless Motors (Set of 4) | Robu.in | ₹3,200 | $38.21 |
+| **Flight Stack** | JHEMCU GHF411AIO Pro 25A F4 2-4S AIO Flight Controller + ESC | Robu.in | ₹3,999 | $47.75 |
+| **GNSS & Compass** | UBLOX NEO-M8N GPS Module with Active Ceramic Antenna | Robu.in | ₹1,399 | $16.70 |
+| **Flight Battery** | Orange 3S 1500 mAh 40C/50C LiPo Battery Pack (XT60) | Robu.in | ₹1,150 | $13.73 |
+| **Balance Charger** | B3 Pro 10W 2S-3S Compact Balance Charger | Robu.in | ₹450 | $5.37 |
+| **Propellers** | Gemfan 5045 3-Blade Polycarbonate Propellers (2 Pairs) | Robu.in | ₹250 | $2.99 |
+| **Vision & Compute**| ESP32-S3-CAM Development Board with OV2640 + MicroSD Slot | Robu.in | ₹999 | $11.93 |
+| **LiDAR Altimeter** | VL53L0X Time-of-Flight Micro-LiDAR Distance Sensor | Robu.in | ₹380 | $4.54 |
+| **Carrier Shield** | Custom 2-Layer Interconnect Board (5 pcs batch) | JLCPCB | ₹650 | $7.76 |
+| **Wiring & Hardware**| XT60 lead, M2/M3 nylon standoffs, 1000 µF Cap, wires | Robu.in | ₹350 | $4.18 |
+| **Total System Cost** | **Complete Autonomous 3D Topography Drone** | — | **₹14,026** | **$167.47** |
+
+---
+
+## 6. Electrical Pinoyt and Wiring
+
+### Flight Controller(STM32F411) to ESP32-S3-CAM:
+* `FC 5V(2A BEC Pad)` $\rightarrow$ `ESP32 5V`
+* `FC GND` $\rightarrow$ `ESP32 GND`
+* `FC UART1 RX` $\rightarrow$ `ESP32 GPIO 43(U1TXD)`
+* `FC UART1 TX` $\rightarrow$ `ESP32 FPIO 44(U1RXD)`
+
+### ESP32-S3-CAM to VL53L0X Time-of-Flight Sensor
+* `ESP32 3.3` $\rightarrow$ `VL53L0X VIN`
+* `ESP32 GND` $\rightarrow$ `VL53L0X GND`
+* `ESP32 GPIO 1` $\rightarrow$ `VL53L0X SDA`
+* `ESP32 GPIO 2` $\rightarrow$ `VL53L0X SCL`
+
+### Flight Controller to UBLOX NEO-M8N GPS
+* `FC 5V` $\rightarrow$ `GPS VCC`
+* `FC GND` $\rightarrow$ `GPS GND`
+* `FC UART2 RX` $\rightarrow$ `GPS TX`
+* `FC UART2 TX` $\rightarrow$ `GPS RX`
+* `FC SCL / SDA` $\rightarrow$ `Compass SCL / SDA`
+
+---
