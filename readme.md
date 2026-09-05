@@ -4,7 +4,7 @@ An open-source, autonomous 3D aerial mapping drone controlled directly from a sm
 
 ## 1. Project Overview
 
-* **The Problem:** Enterprise aerial surveying systems(such as Wingtra or senseFly) cost upwards of $5k to $ 10k , making photogrammetric mapping inaccessible to students, independent researchers, and small-scale agricultirist.
+* **The Problem:** Enterprise aerial surveying systems(such as Wingtra or senseFly) cost upwards of $5k to $ 10k , making photogrammetric mapping inaccessible to students, independent researchers, and small-scale agriculture.
 
 * **The Limitation of Hobby Drones:** Standard DIY quadcopters require an expensive $80+ dedicated radio controller, use upward-tilted cameras suited only for manual racing, and capture uncalibrated video clips rather than structure, geo-referenced spatial data.
 
@@ -12,7 +12,7 @@ An open-source, autonomous 3D aerial mapping drone controlled directly from a sm
 
 ## 2. Heterogeneous Dual-Brain Architecture
 
-Running flight stabilization loops alaongside camera and Wi-Fi streaming on a single microcontroller introduces RTOS thread latency and task contention. AeroMesh S3 separates flight stabilization from mission compute across two dedicated microcontrollers:
+Running flight stabilization loops alongside camera and Wi-Fi streaming on a single microcontroller introduces RTOS thread latency and task contention. AeroMesh S3 separates flight stabilization from mission compute across two dedicated microcontrollers:
 
 ```text 
 [Smartphone/ Ground Control Station]
@@ -34,7 +34,7 @@ Running flight stabilization loops alaongside camera and Wi-Fi streaming on a si
 ```
 
 
-* **The Real-Time Brain (STM32F411):** Runs iNav flight firmware, dedicating all compute cycles to sensor filtering, attitude stabilization, and motor drive via DShat protocols.
+* **The Real-Time Brain (STM32F411):** Runs iNav flight firmware, dedicating all compute cycles to sensor filtering, attitude stabilization, and motor drive via DShot protocols.
 * **The Mission Brain (ESP32-S3):** Broadcasts a local Wi-Fi Access Point, routes MAVLink telemetry packets to QGroundControl, triggers the downward camera, and logs distance data from the laser sensor.
 -------
 
